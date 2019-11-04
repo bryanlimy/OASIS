@@ -2,14 +2,16 @@
 # run with:         python setup.py build_ext --inplace
 # clean up with:    python setup.py clean --all
 
+import os
 from Cython.Build import cythonize
 import numpy as np
+from sys import platform
 from setuptools.extension import Extension
 from setuptools import find_packages, setup
 
-import os
-os.environ['CC'] = 'gcc-8'
-os.environ['CXX'] = 'g++-8'
+if platform == 'darwin':
+  os.environ['CC'] = 'gcc-8'
+  os.environ['CXX'] = 'g++-8'
 
 with open('requirements.txt', 'r') as f:
   required = f.read().splitlines()
