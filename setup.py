@@ -7,6 +7,10 @@ import numpy as np
 from setuptools.extension import Extension
 from setuptools import find_packages, setup
 
+import os
+os.environ['CC'] = 'gcc-8'
+os.environ['CXX'] = 'g++-8'
+
 with open('requirements.txt', 'r') as f:
     required = f.read().splitlines()
 
